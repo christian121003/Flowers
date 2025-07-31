@@ -1300,3 +1300,93 @@ body {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
 }
+
+.love-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: gentleAppear 2.5s ease-in-out 6s forwards;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .message-line {
+    font-family: 'Playfair Display', serif;
+    color: #ffcce6;
+    font-size: 3rem;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .message-line:nth-child(1) {
+    animation: textFadeIn 1.5s ease-out 2.2s forwards;
+  }
+  
+  .message-line:nth-child(2) {
+    animation: textFadeIn 1.5s ease-out 2.5s forwards;
+  }
+  
+  .signature {
+    font-family: 'Parisienne', cursive;
+    color: #ffcce6;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textFadeIn 2s ease-out 3s forwards;
+    text-shadow: 0 0 15px rgba(252, 83, 229, 0.7);
+  }
+  
+  @keyframes gentleAppear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes textFadeIn {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Floating petals effect */
+  .petal {
+    position: absolute;
+    background-color: #1E90FF;
+    border-radius: 50% 0 50% 50%;
+    opacity: 0;
+    z-index: 999;
+    animation: falling linear infinite;
+  }
+  
+  @keyframes falling {
+    0% {
+      top: -10%;
+      transform: rotate(0deg) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 110%;
+      transform: rotate(360deg) translateX(50px);
+      opacity: 0;
+    }
+  }
